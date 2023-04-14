@@ -1,3 +1,11 @@
+# Installation Guide
+
+- Clone / Download this Project to your local PC
+- run `npm install` on your terminal
+- run `npm run start` to start this project
+- Wait a few moment
+- Ready to go!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
