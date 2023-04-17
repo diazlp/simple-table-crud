@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/simple-table-crud/static/css/main.b5b0d84e.css",
-    "main.js": "/simple-table-crud/static/js/main.fb864d17.js",
+    "main.js": "/simple-table-crud/static/js/main.dca342ea.js",
     "index.html": "/simple-table-crud/index.html",
     "main.b5b0d84e.css.map": "/simple-table-crud/static/css/main.b5b0d84e.css.map",
-    "main.fb864d17.js.map": "/simple-table-crud/static/js/main.fb864d17.js.map"
+    "main.dca342ea.js.map": "/simple-table-crud/static/js/main.dca342ea.js.map"
   },
   "entrypoints": [
     "static/css/main.b5b0d84e.css",
-    "static/js/main.fb864d17.js"
+    "static/js/main.dca342ea.js"
   ]
 }
