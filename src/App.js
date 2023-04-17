@@ -6,6 +6,7 @@ import RequireAuth from './utils/RequireAuth';
 import Dashboard from './views/Dashboard';
 import { DataContextStore } from './context/DataContext';
 import DetailPage from './views/DetailPage';
+import RegisterPage from './views/RegisterPage';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Router>
             <Routes>
               <Route path='/login' element={<LoginPage />} />
+              <Route path='/register' element={<RegisterPage />} />
               <Route path="/dashboard" element={
                 <RequireAuth>
                   <Dashboard />

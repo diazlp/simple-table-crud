@@ -6,14 +6,18 @@ import { Navigate, Link } from 'react-router-dom';
 
 const { Title } = Typography
 
-const LoginPage = () => {
-  const { userToken, loginFlow, showLoading, showError } = useContext(UserContext)
+const RegisterPage = () => {
+  const { userToken, registerFlow, showLoading, showSuccess } = useContext(UserContext)
+  const [form] = Form.useForm()
 
   const onFinish = (values) => {
-    loginFlow({
+    registerFlow({
+      name: values.name,
       email: values.email,
       password: values.password
     })
+
+    form.resetFields()
   };
 
   if (userToken) {
@@ -24,22 +28,38 @@ const LoginPage = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div style={{ margin: 'auto', width: '30%' }}>
         <Card style={{ boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)" }}>
-          <Title style={{ marginBottom: '3rem' }}>Simple CRUD App</Title>
+          <Title style={{ marginBottom: '3rem' }}>Register</Title>
           <Form
+            form={form}
             name="normal_login"
             className="login-form"
             onFinish={onFinish}
           >
             <Form.Item
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your Name!',
+                },
+                {
+                  min: 8,
+                  message: 'Name must be minimum 8 characters.'
+                }
+              ]}
+            >
+              <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Your full name" />
+            </Form.Item>
+            <Form.Item
               name="email"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your Email!',
+                  message: 'Please input your Username!',
                 },
               ]}
             >
-              <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="johndoe@mail.com" />
+              <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Your email address" />
             </Form.Item>
             <Form.Item
               name="password"
@@ -57,22 +77,22 @@ const LoginPage = () => {
               <Input
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
-                placeholder='********'
+                placeholder="Your password"
               />
             </Form.Item>
 
             {
-              showError &&
-              <Alert style={{ marginBottom: '1rem' }} message={showError} type="error" />
+              showSuccess &&
+              <Alert style={{ marginBottom: '1rem' }} message={'Berhasil mendaftar'} type="success" />
             }
 
             <Form.Item>
               <Space>
                 <Button type="primary" htmlType="submit" className="login-form-button" loading={showLoading}>
-                  Log in
+                  Register
                 </Button>
                 or
-                <Link to={"/register"}>register now!</Link>
+                <Link to={"/login"}>back to login</Link>
               </Space>
             </Form.Item>
           </Form>
@@ -82,4 +102,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default RegisterPage

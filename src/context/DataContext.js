@@ -11,7 +11,7 @@ export const DataContextStore = ({ children }) => {
 
   const fetchDataList = async (token) => {
     setShowDataLoading(true)
-    const response = await axios.get('https://cms-admin.ihsansolusi.co.id/testapi/user', {
+    const response = await axios.get('https://cms-admin-v2.ihsansolusi.co.id/testapi/user', {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -24,7 +24,7 @@ export const DataContextStore = ({ children }) => {
 
   const getSelectedData = async (payload, token) => {
     setShowDataLoading(true)
-    const response = await axios.get(`https://cms-admin.ihsansolusi.co.id/testapi/user/${payload}`, {
+    const response = await axios.get(`https://cms-admin-v2.ihsansolusi.co.id/testapi/user/${payload}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -37,7 +37,7 @@ export const DataContextStore = ({ children }) => {
   const postNewData = async (payload, token) => {
     setShowAPILoading(true)
 
-    await axios.post('https://cms-admin.ihsansolusi.co.id/testapi/user', payload, {
+    await axios.post('https://cms-admin-v2.ihsansolusi.co.id/testapi/user', payload, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -50,7 +50,7 @@ export const DataContextStore = ({ children }) => {
   const editSelectedData = async (id, payload, token) => {
     setShowAPILoading(true)
 
-    await axios.put(`https://cms-admin.ihsansolusi.co.id/testapi/user/${id}`, payload, {
+    await axios.put(`https://cms-admin-v2.ihsansolusi.co.id/testapi/user/${id}`, payload, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -62,7 +62,7 @@ export const DataContextStore = ({ children }) => {
 
   const deleteSelectedData = async (payload, token) => {
     setShowAPILoading(true)
-    await axios.delete(`https://cms-admin.ihsansolusi.co.id/testapi/user/${payload}`, {
+    await axios.delete(`https://cms-admin-v2.ihsansolusi.co.id/testapi/user/${payload}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

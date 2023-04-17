@@ -1,6 +1,8 @@
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Table, Space } from 'antd'
+import {
+  useNavigate,
+} from 'react-router-dom'
+import { Table, Space, Button } from 'antd'
 import DataContext from '../context/DataContext'
 import UserContext from '../context/UserContext'
 
@@ -50,9 +52,9 @@ const MainTable = ({ dataSource, showModal }) => {
       render: (_, record) => {
         return (
           <Space size="middle" >
-            <a onClick={() => navigate(`/view/${record.id}`)}>View</a>
-            <a onClick={() => showModal(record.id)}>Edit</a>
-            <a onClick={() => onDelete(record.id)}>Delete</a>
+            <Button type={"primary"} onClick={() => navigate(`/view/${record.id}`)}>View</Button>
+            <Button type={"primary"} style={{ backgroundColor: 'orange' }} onClick={() => showModal(record.id)}>Edit</Button>
+            <Button type={"primary"} style={{ backgroundColor: 'red' }} onClick={() => onDelete(record.id)}>Delete</Button>
           </Space >
         )
       }
